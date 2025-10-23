@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Digital Clock</title>
+  <style>
+    body{
+      text-align: center;
+      background-color: black;
+      color: lightgreen;
+    }
+    h1{
+      border:2px solid lightblue;
+      font-size: 60px;
+      padding: 20px;
+      border-radius: 100px;
+    }
+    h2{
+      border:2px solid red;
+      font-size: 30px;
+      padding: 10px;
+      border-radius:50px;
+    }
+    
+  </style>
+  </head>
+  <body>
+    <h1>Digital Clock</h1>
+    <h1 id="display"></h1>
+    <h2 id="date"></h2>
+    <script>
+      let dates = document.getElementById("date")
+      let displays = document.getElementById("display")
+      function clock(){
+        let now = new Date()
+        let hour = now.getHours()
+        let minute = now.getMinutes()
+        let second = now.getSeconds()
+        let day = now.getDay()
+        let month =now.getMonth()
+        let dayindex = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+        let date = now.getDate()
+        let monthindex = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+        let year = now.getFullYear()
+        let ampm = hour >= 12 ? "PM":"AM"
+        hour = hour % 12 
+        hour = hour ? hour : 12
+        
+        let h = hour < 10 ? "0" + hour : hour
+        let m = minute < 10 ?"0" + minute : minute
+        let s = second < 10 ?"0" + second : second
+        displays.textContent = `${h}:${m}:${s} ${ampm}`
+        dates.textContent = `${dayindex[day]},${date},${monthindex[month]} ${year}`
+      }
+      setInterval(clock,1000)
+      clock()
+    </script>
+  </body>
+</html>
