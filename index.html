@@ -48,7 +48,7 @@
         let m = minute < 10 ?"0" + minute : minute
         let s = second < 10 ?"0" + second : second
         displays.textContent = `${h}:${m}:${s} ${ampm}`
-        dates.textContent = `${dayindex[day]},${date},${monthindex[month]} ${year}`
+        dates.textContent = `${dayindex[day]},${date} ${monthindex[month]} ${year}`
       }
       setInterval(clock,1000)
       clock()
